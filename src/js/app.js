@@ -1,7 +1,6 @@
 export default function orderByProps(obj, arr) {
   const stats = [];
 
-  // перебор свойств объекта и их запись в массив:
   for (const prop in obj) {
     if ({}.hasOwnProperty.call(obj, prop)) {
       if (obj.hasOwnProperty.call(obj, prop)) {
@@ -9,7 +8,7 @@ export default function orderByProps(obj, arr) {
           stats.push({ key: prop, value: obj[prop] });
         }
       }
-      // сортировка по алфавиту:
+      
       stats.sort((a, b) => {
         if (a.key < b.key) {
           return -1;
@@ -20,7 +19,6 @@ export default function orderByProps(obj, arr) {
     }
   }
 
-  // добавление оставшихся свойств в начало массива:
   for (let i = arr.length - 1; i >= 0; i -= 1) {
     stats.unshift({ key: arr[i], value: obj[arr[i]] })
   }
